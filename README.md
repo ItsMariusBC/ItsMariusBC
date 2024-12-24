@@ -61,13 +61,6 @@
   <img src="https://img.shields.io/badge/-Problem_Solving-3E6AB2?style=for-the-badge&logoColor=white"/>
 </div>
 
-<!-- Contribution Graph -->
-<div align="center">
-  <img src="https://activity-graph.herokuapp.com/graph?username=ItsSheldonDev&theme=xcode&bg_color=20232a&hide_border=true" width="100%"/>
-</div>
-
-<br>
-
 <!-- Contact Section -->
 <div align="center">
   <h3>🤝 Connect with Me</h3>
