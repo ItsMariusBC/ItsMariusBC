@@ -19,11 +19,6 @@
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ItsSheldonDev&layout=compact&langs_count=7&theme=midnight-purple&hide_border=true"/>
 </div>
 <br>
-<!-- Streak Stats -->
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ItsSheldonDev&theme=midnight-purple&hide_border=true" alt="GitHub Streak Stats">
-</div>
-<br>
 <!-- Skills Section -->
 <div align="center">
   <h3>🛠 Technologies & Tools</h3>
