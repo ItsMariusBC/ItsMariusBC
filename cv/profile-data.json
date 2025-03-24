@@ -1,7 +1,7 @@
 {
   "profile": {
-    "name": "Votre Nom",
-    "firstName": "Prénom",
+    "name": "Biziere Couzinet",
+    "firstName": "Marius",
     "title": "Développeur Fullstack",
     "description": "Développeur Fullstack passionné par la création d'applications web innovantes et performantes",
     "photo": "https://raw.githubusercontent.com/ItsSheldonDev/ItsSheldonDev/refs/heads/main/cv/me.jpg"
@@ -44,18 +44,18 @@
       }
     ],
     "frontend": [
-      { "name": "Vue.js", "level": 95 },
+      { "name": "Vue.js", "level": 60 },
       { "name": "React", "level": 90 },
-      { "name": "TypeScript", "level": 90 },
-      { "name": "TailwindCSS", "level": 85 },
-      { "name": "Nuxt.js", "level": 88 }
+      { "name": "TypeScript", "level": 100 },
+      { "name": "TailwindCSS", "level": 80 },
+      { "name": "Nuxt.js", "level": 90 }
     ],
     "backend": [
-      { "name": "Node.js", "level": 90 },
-      { "name": "NestJS", "level": 85 },
-      { "name": "Express", "level": 90 },
-      { "name": "APIs RESTful", "level": 95 },
-      { "name": "GraphQL", "level": 80 }
+      { "name": "Node.js", "level": 100 },
+      { "name": "NestJS", "level": 95 },
+      { "name": "Express", "level": 100 },
+      { "name": "APIs RESTful", "level": 80 },
+      { "name": "GraphQL", "level": 75 }
     ],
     "other": [
       "UI/UX Design", "Git", "Docker", "AWS", "CI/CD", "Agile/Scrum",
