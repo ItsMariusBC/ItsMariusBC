@@ -15,8 +15,8 @@
 <br>
 <!-- GitHub Stats Section -->
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ItsSheldonDev&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true&hide_border=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ItsSheldonDev&layout=compact&langs_count=7&theme=midnight-purple&hide_border=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ItsMariusBC&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true&hide_border=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ItsMariusBC&layout=compact&langs_count=7&theme=midnight-purple&hide_border=true"/>
 </div>
 <br>
 <!-- Skills Section -->
