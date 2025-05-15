@@ -5,7 +5,7 @@
   <br>
   
   <!-- Profile Views -->
-  <img src="https://komarev.com/ghpvc/?username=ItsSheldonDev&label=Profile%20views&color=553E91&style=for-the-badge" alt="Profile views">
+  <img src="https://komarev.com/ghpvc/?username=ItsMariusBC&label=Profile%20views&color=553E91&style=for-the-badge" alt="Profile views">
   
   <br>
   
