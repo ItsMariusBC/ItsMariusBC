@@ -73,9 +73,12 @@ pub fn svg_overwrite_str(
     svg_write(svg, "age_data_plus", &plus_str, 2);
 
     svg_write(svg, "commit_data", &commit_data.to_string(), 22);
-    svg_write(svg, "star_data", &star_data.to_string(), 14);
+    // Repos line: `contrib_data` has no dot-leader, so its digit count shifts the
+    // whole line. Size the star_data leader to keep the row at column 61.
+    let contrib_str = contrib_data.to_string();
+    svg_write(svg, "star_data", &star_data.to_string(), 15 - contrib_str.len() as i64);
     svg_write(svg, "repo_data", &repo_data.to_string(), 8);
-    svg_write(svg, "contrib_data", &contrib_data.to_string(), 0);
+    svg_write(svg, "contrib_data", &contrib_str, 0);
     svg_write(svg, "follower_data", &follower_data.to_string(), 10);
     svg_write(svg, "loc_data", &loc_data[2], 7);
     svg_write(svg, "loc_add", &loc_data[0], 5);
@@ -153,6 +156,42 @@ mod tests {
 
     fn num(svg: &str, id: &str) -> i64 {
         inner_text(svg, id).replace(',', "").parse().unwrap_or(0)
+    }
+
+    fn cells(line: &str) -> usize {
+        Regex::new("<[^>]*>")
+            .unwrap()
+            .replace_all(line, "")
+            .replace("&amp;", "&")
+            .chars()
+            .count()
+    }
+
+    /// The Repos row must stay at column 61 regardless of how many digits
+    /// `contrib_data` has (it has no dot-leader of its own).
+    #[test]
+    fn repos_row_stays_aligned_for_any_contrib_width() {
+        for path in ["img/dark_mode.svg", "img/light_mode.svg"] {
+            let original = std::fs::read_to_string(path).unwrap();
+            for contrib in [6, 11, 90, 100] {
+                let mut svg = original.clone();
+                super::svg_overwrite_str(
+                    &mut svg,
+                    19,
+                    383,
+                    3,
+                    11,
+                    contrib,
+                    13,
+                    &["267,558".into(), "46,950".into(), "220,608".into()],
+                );
+                let repos = svg
+                    .lines()
+                    .find(|l| l.contains("Repos") && l.contains("Stars"))
+                    .unwrap();
+                assert_eq!(cells(repos), 61, "{path} with contrib={contrib}");
+            }
+        }
     }
 
     /// Golden parity gate: re-injecting the values ALREADY present in the
