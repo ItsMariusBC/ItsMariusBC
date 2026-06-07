@@ -1,4 +1,4 @@
-//! Age calculation. Day-precise (improved over the original month-only version).
+//! Age calculation (day-precise).
 
 use crate::config::{BIRTH_DAY, BIRTH_MONTH, BIRTH_YEAR};
 use chrono::{Datelike, Local};

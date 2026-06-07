@@ -1,5 +1,3 @@
-//! Constants + environment access. Port of `utils.ts`.
-
 use sha2::{Digest, Sha256};
 use std::env;
 use std::sync::LazyLock;
@@ -19,7 +17,6 @@ pub static ACCESS_TOKEN: LazyLock<String> =
     LazyLock::new(|| env::var("ACCESS_TOKEN").unwrap_or_default());
 
 /// Lowercase hex SHA-256 of a string's UTF-8 bytes.
-/// Matches Node `createHash("sha256").update(s).digest("hex")`.
 pub fn sha256_hex(s: &str) -> String {
     let mut hasher = Sha256::new();
     hasher.update(s.as_bytes());
@@ -36,16 +33,11 @@ mod tests {
     use super::*;
 
     #[test]
-    fn sha256_matches_node() {
-        // sha256("ItsMariusBC") — the committed cache filename for this account.
+    fn sha256_matches_cache_filename() {
+        // Must match the committed cache filename: cache/<this>.txt
         assert_eq!(
             sha256_hex("ItsMariusBC"),
             "0824a210b33bfbb9c6fc8df895ec775333b51a894127d924e0f2ab466ded3484"
-        );
-        // sha256("wneel") — the original upstream account's cache filename.
-        assert_eq!(
-            sha256_hex("wneel"),
-            "b76616c56d72c9ca3f36c29d74235bd432fb461d8106f4d3f42ff1966218789e"
         );
     }
 }

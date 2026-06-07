@@ -1,7 +1,5 @@
-//! Global GraphQL call counters. Port of `QUERY_COUNT` / `query_count()` in `utils.ts`.
-//!
-//! Fixed insertion order is preserved for the final printout. `user_getter` and
-//! `graph_commits` are never incremented (kept at 0) to match the original output.
+//! Global GraphQL call counters, in fixed display order.
+//! `user_getter` and `graph_commits` are intentionally never incremented.
 
 use std::sync::atomic::{AtomicU64, Ordering};
 
@@ -30,7 +28,7 @@ pub fn snapshot() -> Vec<(&'static str, u64)> {
         .collect()
 }
 
-/// JSON-ish representation used inside error messages, matching `JSON.stringify(QUERY_COUNT)`.
+/// JSON representation embedded in error messages.
 pub fn as_json() -> String {
     let body = QUERY_COUNT
         .iter()

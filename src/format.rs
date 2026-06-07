@@ -1,4 +1,4 @@
-//! Number formatting helpers (Rust has no `toLocaleString`).
+//! Number formatting helpers.
 
 /// Group an integer with `,` every three digits (en-US), handling negatives.
 /// `21114 -> "21,114"`, `-1234 -> "-1,234"`, `0 -> "0"`.

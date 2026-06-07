@@ -1,7 +1,4 @@
-//! Commit counter. Port of `functions/datas/commits/commits.ts`.
-//!
-//! Reads the cache file, skips the comment block, and sums the `my_commits`
-//! column (field index 2) across all repo lines.
+//! Sums the `my_commits` column (field index 2) of each repo line in the cache.
 
 use anyhow::Result;
 use std::fs;
@@ -11,7 +8,6 @@ use crate::config::user_file_name;
 pub fn commit_counter(comment_size: usize) -> Result<i64> {
     let filename = user_file_name();
     let content = fs::read_to_string(&filename)?;
-    // JS `split('\n')` semantics (keeps trailing empty element if present).
     let lines: Vec<&str> = content.split('\n').collect();
     let mut total = 0i64;
     for line in lines.iter().skip(comment_size) {

@@ -93,7 +93,6 @@ async fn main() -> Result<()> {
     let follower_data = follower_res?;
     print_time_to_run("get followers count", follower_time);
 
-    // total_loc.slice(0, -1) -> [add, del, diff], each toLocaleString
     let loc_data = [thousands(loc_add), thousands(loc_del), thousands(loc_diff)];
 
     for filename in ["img/dark_mode.svg", "img/light_mode.svg"] {

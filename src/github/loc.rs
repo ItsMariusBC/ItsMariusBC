@@ -1,5 +1,4 @@
-//! LOC orchestration. Port of `functions/datas/lines_of_code/loc.ts` with the
-//! async recursion flattened into a page loop.
+//! LOC orchestration: paginate all repositories, then delegate to the cache.
 
 use anyhow::Result;
 use reqwest::Client;

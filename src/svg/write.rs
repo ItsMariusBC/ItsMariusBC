@@ -1,4 +1,4 @@
-//! SVG rewriter. Port of `functions/files/svg/write.ts`.
+//! SVG rewriter.
 //!
 //! Instead of a full XML round-trip (which would re-escape entities and reorder
 //! attributes), we do a surgical, byte-preserving regex replacement of the inner
@@ -28,7 +28,7 @@ fn find_and_replace(svg: &mut String, id: &str, new_text: &str) {
     }
 }
 
-/// Dot-leader string. Port of the `dot_string` logic inside `svg_write`.
+/// Dot-leader string sized to `length`.
 fn dot_string(length: i64, text: &str) -> String {
     let just_len = length - text.chars().count() as i64;
     if just_len == 0 {
@@ -49,7 +49,7 @@ fn svg_write(svg: &mut String, id: &str, text: &str, length: i64) {
 
 /// Inject all data values into an SVG string. `loc_data` is `[add, del, diff]`
 /// already formatted with thousands separators.
-#[allow(clippy::too_many_arguments)] // mirrors the original svg_overwrite signature
+#[allow(clippy::too_many_arguments)] // one parameter per stat field
 pub fn svg_overwrite_str(
     svg: &mut String,
     age_data: i64,
@@ -83,7 +83,7 @@ pub fn svg_overwrite_str(
 }
 
 /// Read an SVG file, inject values, write it back (no trailing newline added).
-#[allow(clippy::too_many_arguments)] // mirrors the original svg_overwrite signature
+#[allow(clippy::too_many_arguments)] // one parameter per stat field
 pub fn svg_overwrite(
     filename: &str,
     age_data: i64,

@@ -1,5 +1,3 @@
-//! GraphQL request helper. Port of `functions/datas/request.ts`.
-
 use anyhow::{bail, Result};
 use reqwest::Client;
 use serde_json::{json, Value};
@@ -10,9 +8,7 @@ use crate::query_count;
 pub const GITHUB_GRAPHQL: &str = "https://api.github.com/graphql";
 
 /// Build the shared HTTP client.
-///
-/// GitHub's GraphQL API rejects requests without a `User-Agent` header (403),
-/// so we set one explicitly — Node/axios sent one by default, Rust does not.
+/// A `User-Agent` header is required — GitHub's GraphQL API returns 403 without it.
 pub fn build_client() -> Result<Client> {
     use reqwest::header::{HeaderMap, HeaderValue, AUTHORIZATION, USER_AGENT};
     let mut headers = HeaderMap::new();
@@ -24,8 +20,7 @@ pub fn build_client() -> Result<Client> {
     Ok(Client::builder().default_headers(headers).build()?)
 }
 
-/// Low-level POST returning the raw response body parsed as JSON together with
-/// the HTTP status, so callers can replicate the original status-aware logic.
+/// Low-level POST returning the HTTP status and the JSON body.
 pub async fn post_graphql(
     client: &Client,
     query: &str,
@@ -41,7 +36,7 @@ pub async fn post_graphql(
     Ok((status, body))
 }
 
-/// Equivalent of `simple_request`: POST, require 200, return the JSON body.
+/// POST, require HTTP 200, return the JSON body.
 pub async fn simple_request(
     client: &Client,
     func_name: &str,

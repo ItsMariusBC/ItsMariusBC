@@ -1,5 +1,3 @@
-//! Repos + stars counters. Port of `functions/datas/stars/stars.ts`.
-
 use anyhow::Result;
 use reqwest::Client;
 use serde_json::{json, Value};
@@ -26,7 +24,7 @@ fn stars_counter(edges: &[Value]) -> i64 {
         .sum()
 }
 
-/// Returns `(stars, repos)`. Single request (no pagination), matching the original.
+/// Returns `(stars, repos)`. Single request, no pagination.
 pub async fn graph_repos_stars(
     client: &Client,
     count_type: CountType,

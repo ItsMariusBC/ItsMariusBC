@@ -1,4 +1,4 @@
-//! Incremental LOC cache. Port of `functions/cache/cache_builder.ts`.
+//! Incremental LOC cache.
 
 use anyhow::Result;
 use reqwest::Client;
@@ -89,14 +89,13 @@ pub async fn cache_builder(
             continue;
         }
 
-        // try { ... } catch -> "<hash> 0 0 0 0"
         let total_count = edges[index]["node"]["defaultBranchRef"]["target"]["history"]
             ["totalCount"]
             .as_i64();
 
         match total_count {
             None => {
-                // defaultBranchRef null -> JS would throw -> catch branch
+                // empty repo / no default branch -> reset line
                 body[index] = format!("{} 0 0 0 0", repo_hash);
             }
             Some(tc) if commit_count != tc => {

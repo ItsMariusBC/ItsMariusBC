@@ -1,6 +1,4 @@
 //! Per-repo additions/deletions/commits counter.
-//! Port of `functions/datas/lines_of_code/counter.ts` with the async recursion
-//! flattened into an iterative page loop.
 
 use anyhow::{bail, Result};
 use reqwest::Client;
@@ -14,7 +12,7 @@ use crate::query_count::{as_json, query_count};
 
 /// Returns `(additions, deletions, my_commits)` for one repository, walking the
 /// full commit history. On any non-200/error, persists the partial cache
-/// (`force_close_file`) and propagates the error, like the original.
+/// (`force_close_file`) and propagates the error.
 pub async fn recursive_loc(
     client: &Client,
     owner: &str,

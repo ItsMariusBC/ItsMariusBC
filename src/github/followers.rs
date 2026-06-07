@@ -1,5 +1,3 @@
-//! Followers counter. Port of `functions/datas/followers/followers.ts`.
-
 use anyhow::Result;
 use reqwest::Client;
 use serde_json::json;

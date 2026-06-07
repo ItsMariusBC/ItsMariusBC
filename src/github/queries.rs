@@ -1,4 +1,4 @@
-//! GraphQL query strings. Port of inline queries + `queries.ts`.
+//! GraphQL query strings.
 
 pub const STARS_REPOS_QUERY: &str = r#"
 	query ($owner_affiliation: [RepositoryAffiliation], $login: String!, $cursor: String) {

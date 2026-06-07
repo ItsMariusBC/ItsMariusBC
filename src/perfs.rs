@@ -1,6 +1,6 @@
-//! Timing printout. Port of `functions/infos/perfs.ts`.
+//! Timing printout.
 
-/// `difference` is in seconds. Matches the original ms/s formatting + padding.
+/// `difference` is in seconds.
 pub fn print_time_to_run(query_type: &str, difference: f64) {
     let message = if difference > 1.0 {
         pad_start(&format!("{:.4} s ", difference), 12)
