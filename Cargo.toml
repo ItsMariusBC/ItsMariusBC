@@ -2,7 +2,10 @@
 name = "itsmariusbc-readme"
 version = "0.1.0"
 edition = "2021"
-description = "GitHub profile README stats generator (Rust port)"
+description = "GitHub profile README stats generator"
+authors = ["Marius Biziere Couzinet <marius.bc@ik.me>"]
+repository = "https://github.com/ItsMariusBC/ItsMariusBC"
+license = "MIT"
 
 [[bin]]
 name = "itsmariusbc-readme"
