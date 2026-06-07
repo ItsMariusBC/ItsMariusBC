@@ -39,5 +39,5 @@ jobs:
           git diff
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git commit -m "ci/cd: Updated README with latest data" -a || echo "No changes to commit"
+          git commit -m "chore: refresh profile stats" -a || echo "No changes to commit"
           git push
