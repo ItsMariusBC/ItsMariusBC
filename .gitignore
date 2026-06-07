@@ -1,0 +1,14 @@
+# env
+.env
+
+# rust
+/target
+
+# ide
+.vscode
+
+# macos
+.DS_Store
+
+#
+ignore/
